@@ -58,13 +58,13 @@ const REGISTER = (req, res) => {
         body.avatar = fileName
         body.userId = users.length ? users.at(-1).userId + 1 : 1
 
-        // avatar.mv(path.join('src', 'uploads', 'avatar', fileName))
+        avatar.mv(path.join(process.cwd(), 'src', 'uploads', 'avatar', fileName))
 
 
-        fs.writeFileSync(
-            path.join(process.cwd(), "src", "uploads", "video", fileName),
-            avatar.data
-        )
+        // fs.writeFileSync(
+        //     path.join(process.cwd(), "src", "uploads", "video", fileName),
+        //     avatar.data
+        // )
 
         users.push(body)
 

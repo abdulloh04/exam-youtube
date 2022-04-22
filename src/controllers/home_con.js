@@ -11,11 +11,11 @@ const search = (req, res) => {
             users.forEach(user => {
 
                 if (el.userId == user.userId) el.username = user.username
-                el.avatar = process.HOST + '/profile/' + user.avatar
+                el.avatar = '/profile/' + user.avatar
             })
 
-            el.view = process.HOST + '/view/' + el.videoName
-            el.download = process.HOST + '/download/' + el.videoName
+            el.view = '/view/' + el.videoName
+            el.download = '/download/' + el.videoName
             delete el.videoName
         });
 
@@ -39,14 +39,14 @@ const videos = (req, res) => {
             users.forEach(user => {
                 if (el.userId == user.userId) {
                     el.username = user.username
-                    el.avatar = process.HOST + '/profile/' + user.avatar
+                    el.avatar = '/profile/' + user.avatar
                 }
 
                 
             })
 
-            el.view = process.HOST + '/view/' + el.videoName
-            el.download = process.HOST + '/download/' + el.videoName
+            el.view = '/view/' + el.videoName
+            el.download = '/download/' + el.videoName
             delete el.videoName
         });
 
@@ -74,11 +74,11 @@ const users = (req, res) => {
         users.forEach(el => {
             delete el.password
             delete el.email
-            el.avatar = process.HOST + '/profile/' + el.avatar
+            el.avatar = '/profile/' + el.avatar
             el.videos = dates.filter(val => {
 
-                val.view = process.HOST + '/view/' + val.videoName
-                val.download = process.HOST + '/download/' + val.videoName
+                val.view = '/view/' + val.videoName
+                val.download = '/download/' + val.videoName
                 // delete val.videoName
                 if (val.userId == el.userId) return val
             })
