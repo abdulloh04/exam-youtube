@@ -11,11 +11,11 @@ const search = (req, res) => {
             users.forEach(user => {
 
                 if (el.userId == user.userId) el.username = user.username
-                el.avatar = '/profile/' + user.avatar
+                el.avatar ='https://exam5.herokuapp.com' + '/profile/' + user.avatar
             })
 
-            el.view = '/view/' + el.videoName
-            el.download = '/download/' + el.videoName
+            el.view ='https://exam5.herokuapp.com' + '/view/' + el.videoName
+            el.download ='https://exam5.herokuapp.com' + '/download/' + el.videoName
             delete el.videoName
         });
 
@@ -39,14 +39,14 @@ const videos = (req, res) => {
             users.forEach(user => {
                 if (el.userId == user.userId) {
                     el.username = user.username
-                    el.avatar = '/profile/' + user.avatar
+                    el.avatar ='https://exam5.herokuapp.com' + '/profile/' + user.avatar
                 }
 
                 
             })
 
-            el.view = '/view/' + el.videoName
-            el.download = '/download/' + el.videoName
+            el.view ='https://exam5.herokuapp.com' + '/view/' + el.videoName
+            el.download ='https://exam5.herokuapp.com' + '/download/' + el.videoName
             delete el.videoName
         });
 
@@ -74,11 +74,11 @@ const users = (req, res) => {
         users.forEach(el => {
             delete el.password
             delete el.email
-            el.avatar = '/profile/' + el.avatar
+            el.avatar ='https://exam5.herokuapp.com' + '/profile/' + el.avatar
             el.videos = dates.filter(val => {
 
-                val.view = '/view/' + val.videoName
-                val.download = '/download/' + val.videoName
+                val.view ='https://exam5.herokuapp.com' + '/view/' + val.videoName
+                val.download ='https://exam5.herokuapp.com' + '/download/' + val.videoName
                 // delete val.videoName
                 if (val.userId == el.userId) return val
             })
