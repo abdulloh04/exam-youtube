@@ -1,0 +1,93 @@
+                        *Routes
+
+     #public                                   #private
+
+    /login                                     /admin    
+    /register                                       
+    /search                                      
+    /users                                                
+    /videos
+    /                                       
+
+
+                      *Database
+
+users.json
+dates.json
+
+
+                        *Method
+
+/GET
+    /search -> query    ? title="name"                  <- dates.json
+    /videos -> params    /userId                          <- dates.json
+    /users                                                <- users.json
+
+/POST   
+    /login     -> [username, password]                  <- users.json
+    /register  -> [username, password, email, photo]    <- users.json
+    /admin     -> [title, video]                        <- dates.json
+
+/PUT
+    /admin      -> [title, dataId(*userId)]                               <- dates.json
+
+/DELETE
+    /admin      -> [datesId] :params                      <- dates.json
+
+
+
+                        *Database architecture
+
+
+users: {
+    userId: int
+    username: string unical
+    password: 4-~ sha256
+    email: joi(email) unical
+    avatar: string
+}
+
+
+dates: {
+    datesId: int,
+    userId: int,
+    video: string,
+    title: string,
+    size: string,
+    date: string
+}
+
+
+                    *API-JSON
+
+
+ /search: {
+    userId: int
+    title: string,
+    username: string,
+    avatar: string
+    size: string,
+    view: string,
+    download: string,
+    date: string
+ }
+
+
+/videos: {
+    userId: int
+    title: string,
+    username: string,
+    avatar: string
+    size: string,
+    view: string,
+    download: string,
+    date: string
+}
+
+
+
+/users: {
+    userId: int,
+    username: string,
+    avatar: string
+}
