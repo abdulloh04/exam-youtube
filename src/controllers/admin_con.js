@@ -9,11 +9,11 @@ const GET = (req, res) => {
         users.forEach(el => {
             delete el.password
             delete el.email
-            el.avatar = process.HOST + '/profile/' + el.avatar
+            el.avatar = 'https://exam5.herokuapp.com' + '/profile/' + el.avatar
             el.videos = dates.filter(val => {
 
-                val.view = process.HOST + '/view/' + val.videoName
-                val.download = process.HOST + '/download/' + val.videoName
+                val.view = 'https://exam5.herokuapp.com' + '/view/' + val.videoName
+                val.download = 'https://exam5.herokuapp.com' + '/download/' + val.videoName
                 delete val.videoName
                 if (val.userId == el.userId) return val
             })
